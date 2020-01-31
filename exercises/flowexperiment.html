@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS Flow Control Experimentation</title>
+  </head>
+  <body>
+    <h1>JS Flow Control Experimentation</h1>
+    <script>
+      var findMe = ["not here", "not here", "not here", "here", "not here"];
+      for (i = 0; i < findMe.length; i++) {
+        if (findMe[i] == "here") {
+          console.log(`${findMe[i].toUpperCase()}!`);
+          console.log(`We\'ve found it at location: ${i + 1}`);
+          break;
+        } else {
+          console.log(`${findMe[i]}`);
+        }
+      }
+    </script>
+  </body>
+</html>

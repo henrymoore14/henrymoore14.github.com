@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Sequences in JavaScript</h1>
+    <script>
+      var myString = "I am really hungry for some";
+      console.log(myString);
+      var myOtherString = myString.toUpperCase();
+      console.log(myOtherString);
+
+      var reallyLocation = myString.search("really");
+      console.log(reallyLocation);
+
+      var specialWord = myString.substr(reallyLocation, 6);
+      console.log(specialWord);
+
+      specialWord = specialWord.toUpperCase();
+
+      var newString = myString.replace("really", specialWord);
+      //   console.log(newString);
+
+      var foods = ["bread", "apples", "ham", "yams"];
+
+      //   console.log(`${myString} ${foods[0]}`);
+
+      for (i = 0; i < foods.length; i++) {
+        if (i % 2 == 0) {
+          console.log(`${myString} ${foods[i].toUpperCase()}`);
+        } else {
+          console.log(`${myString} ${foods[i]}`);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example 6 - Capturing Keys</title>
+    <style>
+      div {
+        width: 50px;
+        height: 5000px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Capturing Keys</h1>
+    <p>
+      Press a key on the keyboard.
+    </p>
+    <script>
+      document.addEventListener("keydown", function(event) {
+        var whichKey = String.fromCharCode(event.which);
+        alert(`The ${whichKey} key was pressed!`);
+      });
+    </script>
+  </body>
+</html>

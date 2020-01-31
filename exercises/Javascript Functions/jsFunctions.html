@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JavaScript Functions</title>
+  </head>
+  <body>
+    <h1>JavaScript Functions</h1>
+    <script>
+      function checkNum() {
+        var number = prompt("Enter a whole number", 0);
+
+        while (isNaN(number)) {
+          number = prompt("The input was not valid, try again", 0);
+        }
+
+        if (number >= 10) {
+          console.log("You entered a big number.");
+        } else {
+          console.log("You entered a number smaller than 10.");
+          for (i = 0; i < 10; i++) console.log(`Here is a ${i}.`);
+        }
+      }
+
+      console.log(Math.random());
+
+      var food = ["cheese", "fruit", "chicken", "pie"];
+
+      // function randomInt(min, max) {
+      //   var numbOfValues = max - min + 1;
+      //   var randomNum = Math.random();
+      //   var randomVal = randomNum * numbOfValues;
+      //   var roundedRandomVal = Math.floor(randomVal);
+      //   var finalNum = min + roundedRandomVal;
+      //   return finalNum;
+      // }
+
+      // console.log(food[randomInt(0, 3)]);
+
+      // function randomInt(min, max) {
+      //   return Math.floor((max - min + 1) * Math.random()) + min;
+      // }
+
+      // console.log(food[randomInt(0, 3)]);
+
+      // function doubledRand( aFunction ) {
+      //   var doubled = 2 * aFunction;
+      //   console.log(doubled);
+      // }
+
+      // doubledRandom(randomInt(5,10));
+
+      // var lottery = [randomInt(1, 10), randomInt(11, 20), randomInt(21, 30)];
+
+      // console.log(lottery);
+
+      var greeting = function() {
+        var name = prompt("Please tell me your name", "");
+        console.log(`Hello ${name}, how are you today?`);
+      };
+
+      greeting();
+    </script>
+  </body>
+</html>

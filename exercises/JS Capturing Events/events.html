@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Example 1 Event Listeners</title>
+  </head>
+  <body>
+    <h1>Javascript Event</h1>
+    <button>Don't Click Me</button>
+    <p><a href="http://google.com">Go to Google</a></p>
+    <h2>Anonymous function vs named function javascript</h2>
+    <p>
+      TL;DR Named functions are useful for a good debugging experience, while
+      anonymous functions provides context scoping for easier development. Arrow
+      functions should only be used when functions act as data
+    </p>
+
+    <script>
+      var btn = document.querySelector("button");
+
+      var googleLink = document.querySelector("a");
+
+      googleLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        // Useful for forms
+        alert("No Google for you!");
+      });
+      function ouch() {
+        alert("Oh no you didn't");
+      }
+
+      //If you call the function ouch() then it'll run automatically so you have to run ouch.
+      //   btn.onclick = ouch;
+
+      //Anonymous Function
+      //   btn.onclick = function() {
+      //     alert("Oh no you didn't");
+      //   };
+
+      //   btn.addEventListener("click", ouch);
+
+      //You can add multiple event listerns to an object whereas the you can't for something like the previous method.
+      btn.addEventListener("click", function(event) {
+        //Taking the target of the event and adding a style to it.
+        event.target.style.backgroundColor = "red";
+
+        alert("Oh no you didn't");
+      });
+    </script>
+  </body>
+</html>
