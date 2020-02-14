@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Function Experiment</h1>
+
+    <script>
+      function atYourMarks() {
+        var numberOfRacers = prompt(
+          "How many racers are in this race? Select 1 to 5 racers"
+        );
+        while (
+          !parseInt(numberOfRacers) ||
+          numberOfRacers > 5 ||
+          numberOfRacers < 1
+        ) {
+          numberOfRacers = prompt("Try again. Select 1 to 5 racers");
+        }
+
+        var racers = [];
+        for (var i = 0; i < numberOfRacers; i++) {
+          var racer = prompt(
+            `Enter the name of contestant ${i + 1}`,
+            `Racer ${i + 1}`
+          );
+          while (typeof racer != "string") {
+            racer = prompt("Please enter a valid racer", `Racer ${i + 1}`);
+          }
+          console.log(racer);
+          racers.push(racer);
+        }
+        console.log(racers);
+        return racers;
+      }
+
+      //An array is just an object with keys for enumerable properties:
+      //Ex:
+      //0: "Element 1"
+      //1: "Element 2"
+
+      // The for...in statement iterates over the enumerable properties of an object, in an arbitrary order.
+      // The for...of statement iterates over values that the iterable object defines to be iterated over.
+
+      function race(racers) {
+        for (var [index, value] of racers.entries()) {
+          var j = Math.floor(Math.random() * racers.length);
+          racers.splice(j, 0, value);
+          //   console.log(racers);
+          if (j < index) {
+            racers.splice(index + 1, 1);
+          } else {
+            racers.splice(index, 1);
+          }
+
+          //   console.log(racers);
+          //   console.log(j);
+          //   console.log(index);
+          //   console.log(value);
+        }
+        console.log("Go!\nLet's see how they did");
+        for (var i = 0; i < racers.length; i++) {
+          console.log(`Place ${i + 1}: ${racers[i]}`);
+        }
+        var playAgain = prompt(
+          "If you would like them to race again, type YES",
+          "YES"
+        );
+        if (playAgain === "YES") {
+          race(racers);
+        }
+      }
+
+      race(atYourMarks());
+    </script>
+  </body>
+</html>

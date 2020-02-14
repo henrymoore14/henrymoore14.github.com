@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS Event Challenge 26</title>
+  </head>
+  <body>
+    <h1>JS Event Challenge 26</h1>
+    <div><p>Here is paragraph of text 1</p></div>
+
+    <button>Add</button>
+    <button>Remove</button>
+
+    <script>
+      var pDiv = document.querySelector("div");
+      var btnAdd = document.querySelectorAll("button")[0];
+      var btnRmv = document.querySelectorAll("button")[1];
+      var allPs = document.querySelectorAll("p");
+
+      btnAdd.addEventListener("click", function() {
+        allPs = document.querySelectorAll("p");
+        var newP = document.createElement("p");
+        var pText = document.createTextNode(
+          `Here is paragraph of text ${allPs.length + 1}`
+        );
+        newP.appendChild(pText);
+        pDiv.append(newP);
+      });
+      btnRmv.addEventListener("click", function() {
+        allPs = document.querySelectorAll("p");
+
+        if (allPs.length > 1) {
+          pDiv.removeChild(pDiv.children[allPs.length - 1]);
+        } else {
+          alert("Can't do that");
+        }
+        allPs = document.querySelectorAll("p");
+      });
+    </script>
+  </body>
+</html>

@@ -4,19 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>DOM Examples</title>
+    <style>
+      .blue {
+        color: blue;
+      }
+    </style>
   </head>
   <body>
     <article>
       <header>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo delectus
-          eveniet odit in esse suscipit quia ipsa rem deleniti sunt blanditiis
-          animi iusto optio at id tempora, modi amet nisi.
-        </p>
         <h1>Main Header</h1>
       </header>
-      <p>
+      <div id="special">
+        <p class="cheese">Here is some cheese</p>
+        <p>No cheese</p>
+      </div>
+      <p class="blue">Here's some text</p>
+      <p>Here's some more text</p>
+      <p class="blue">Here's some more more text</p>
+
+      <form action="">
+        <label for=""><input type="checkbox" name="" id="" />yes</label>
+      </form>
+      <!-- <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo delectus
         eveniet odit in esse suscipit quia ipsa rem deleniti
         <a href="#">numquam rerum</a> blanditiis animi iusto optio at id
@@ -24,7 +35,40 @@
       </p>
       <footer>
         <p>Copyright Info by <a href="#">Author</a></p>
-      </footer>
+      </footer> -->
+      <script>
+        // var myText = document.getElementsByTagName("p");
+        // var myText = document.getElementsByClassName("blue");
+        // var myText = document.querySelector("#special .cheese");
+        // var myText = document.querySelectorAll("#special p");
+        // var myDiv = document.getElementsById("special");
+        // var firstPara = document.querySelector("p");
+        var checkbox = document.querySelector("input");
+        var myTag = document.createElement("p");
+        var mySentence = document.createTextNode("second paragraph");
+        var myDiv = document.querySelector("div");
+
+        // console.log(myText);
+
+        // for (var i = 0; i < myText.length; i++) {
+        //   myText[i].style.color = "blue";
+        //   alert(`this is element ${i}`);
+        // }
+
+        // myText.style.fontSize = "24px";
+
+        // for (var i = 0; i < myText.length; i++) {
+        //   myText[i].style.fontWeight = "bold";
+        // }
+
+        // myDiv.innerHTML = "<p>I love cheese</p>";
+        // firstPara.className = "blue";
+        checkbox.setAttribute("checked", "checked");
+        myTag.appendChild(mySentence);
+        document.querySelector("div").appendChild(myTag);
+
+        myDiv.removeChild(myDiv.children[1]);
+      </script>
     </article>
   </body>
 </html>

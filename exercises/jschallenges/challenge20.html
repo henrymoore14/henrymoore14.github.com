@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Challenge 20</title>
+    <style>
+      body {
+        font-family: Arial;
+        line-height: 1.5em;
+      }
+
+      main {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .blue {
+        color: blue;
+      }
+      .red {
+        color: red;
+      }
+      .big {
+        font-size: 2em;
+      }
+
+      img {
+        float: left;
+        margin-right: 10px;
+      }
+
+      article {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>Page Title</h1>
+        <p>Some basic information about this page.</p>
+      </header>
+
+      <article id="one">
+        <h2>Article Title</h2>
+        <p class="date">Today's Date</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+          commodi ullam voluptatem porro officiis culpa impedit nobis provident
+          veniam deserunt quas velit perspiciatis ipsa dignissimos ab est, quo
+          consequuntur magnam?
+        </p>
+        <blockquote>
+          "You're off to great places, today is your day. Your mountain is
+          waiting, so get on your way."
+          <footer>&mdash;Dr. Seuss</footer>
+        </blockquote>
+        <p>
+          <img
+            src="http://meadpoint.net/images/sillyajax.jpg"
+            alt="Ajax"
+          />Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit,
+          dolor? Quod minima voluptatem at optio provident,
+          <a href="http://google.com">quam porro ut</a> impedit officia,
+          consectetur minus eaque cumque voluptates, mollitia beatae
+          necessitatibus.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+          culpa a sunt dolor tempora mollitia. Quod illum ea, non, ducimus
+          nobis, nesciunt praesentium qui modi, commodi sapiente alias fugiat
+          unde!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut quos
+          corrupti quia sit error omnis provident nobis numquam quo magni
+          nesciunt deserunt quidem, deleniti voluptatibus nostrum possimus,
+          obcaecati incidunt unde.
+        </p>
+      </article>
+
+      <article id="two">
+        <h2>Article Title</h2>
+        <p class="date">Today's Date</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero enim
+          voluptatem recusandae, magni nesciunt quia tenetur doloribus labore
+          eos sed quos impedit debitis adipisci,
+          <a href="http://google.com">optio neque</a>, molestiae placeat
+          quisquam nisi?
+        </p>
+        <blockquote>
+          "You're braver than you believe, and stronger than you seem, and
+          smarter than you think."
+          <footer>&mdash;A. A. Milne</footer>
+        </blockquote>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eum
+          eos,
+          <a href="https://en.wikipedia.org/wiki/Llama">modi illum nisi quas</a
+          >. Repellendus odit impedit est ab omnis, reiciendis explicabo, amet
+          error, harum officiis vitae quae incidunt!
+        </p>
+      </article>
+
+      <footer>
+        <p id="copyright">copyright info</p>
+      </footer>
+
+      <script>
+        document.getElementById("copyright").style.color = "green";
+        // console.log(document.getElementById("copyright"));
+
+        //Here querySelector returns a Nodelist
+        var paragraphs = document.querySelectorAll("p");
+        // var paragraphs = document.getElementsByTagName("p");
+        // console.log(paragraphs);
+
+        //This throws an error cause the NodeList that is returned by querySelector has a "length" property that is accessed by the for in loop.
+        // for (var i in paragraphs) {
+        //   console.log(paragraphs[i]);
+        //   // paragraphs[i].style.color = "green";
+        //   paragraphs[i].style.color = "green";
+        // }
+        for (var i; i < paragraphs.length; i++) {
+          console.log(paragraphs[i]);
+          paragraphs[i].style.color = "green";
+        }
+
+        //Here, dates returns an HTML Collection
+        var secondDate = document.getElementsByClassName("date")[1];
+        secondDate.classList.add("red");
+
+        // var dates = document.querySelectorAll("[class=date]");
+
+        // console.log(dates);
+
+        // for (let element of dates) {
+        //   //Question! Why doesn't this work: element.className("red");
+        //   element.classList.add("red");
+        //   console.log(element.className);
+        // }
+
+        // for (let element of dates) {
+        //   element.className = "red";
+        //   console.log(element.className);
+        // }
+
+        var h1s = document.getElementsByTagName("h1");
+
+        function addClass(domElement, newClassName) {
+          let newClassString = String(newClassName);
+          for (let element of domElement) {
+            element.classList.add(newClassString);
+            console.log(element.className);
+          }
+        }
+
+        var img = document.querySelector("#one img");
+        img.setAttribute("src", "http://meadpoint.net/images/xmasajax.jpg");
+
+        //HTMLCollection => node element
+        //Nodelist => any node type
+        // dates.forEach(element => (element.className = "red"));
+
+        var secondArticleParagraphs = document
+          .getElementsByTagName("article")[1]
+          .getElementsByTagName("p");
+
+        let red = "red";
+        let blue = "blue";
+
+        addClass(h1s, red);
+        addClass(secondArticleParagraphs, blue);
+
+        // for (let element of h1s) {
+        //   //Question! Why doesn't this work: element.className("red");
+        //   element.classList.add("red");
+        //   console.log(element.className);
+        // }
+      </script>
+    </main>
+  </body>
+</html>

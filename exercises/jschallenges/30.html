@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS Event Challenge 30</title>
+    <style>
+      body {
+        height: 3000px;
+      }
+      .one {
+        background-color: beige;
+        transition: all 3s;
+      }
+      .two {
+        background-color: blueviolet;
+        transition: all 3s;
+      }
+      .three {
+        background-color: coral;
+        transition: all 3s;
+      }
+      .four {
+        background-color: cornflowerblue;
+        transition: all 3s;
+      }
+      .five {
+        background-color: darkgoldenrod;
+        transition: all 3s;
+      }
+    </style>
+  </head>
+  <body class="0ne">
+    <h1>JS Event Challenge 30</h1>
+    <p>Press B for Beige</p>
+    <p>Press V for Violet</p>
+    <p>Press C for Coral</p>
+    <p>Press F for FlowerBlue</p>
+    <p>Press G for Goldenrod</p>
+
+    <script>
+      var bodyTag = document.querySelector("body");
+
+      document.addEventListener("keydown", function(event) {
+        var keydown = event.which;
+        switch (keydown) {
+          case 66:
+            bodyTag.className = "one";
+            break;
+          case 86:
+            bodyTag.className = "two";
+            break;
+          case 67:
+            bodyTag.className = "three";
+            break;
+          case 70:
+            bodyTag.className = "four";
+            break;
+          case 71:
+            bodyTag.className = "five";
+            break;
+          default:
+            alert("You haven't entered a valid key");
+        }
+      });
+    </script>
+  </body>
+</html>
