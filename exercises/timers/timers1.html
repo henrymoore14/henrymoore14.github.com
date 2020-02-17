@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Timers 1</title>
+  </head>
+  <body>
+    <p><a href="#" id="stop">Stop the Script</a></p>
+    <div id="theDiv"><p>Default Content</p></div>
+
+    <script>
+      const theDiv = document.getElementById("theDiv");
+      const content = "<p>adding another paragraph</p>";
+      //   const timer = setInterval(function() {
+      //     theDiv.innerHTML += content;
+      //   }, 1500);
+      const timer = setInterval(() => {
+        theDiv.innerHTML += content;
+      }, 1500);
+
+      document.getElementById("stop").addEventListener("click", function() {
+        clearInterval(timer);
+      });
+    </script>
+  </body>
+</html>

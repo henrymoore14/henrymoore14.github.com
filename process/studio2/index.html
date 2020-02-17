@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>What's in my Bag</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/dfa5dc5683.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Tomorrow&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="interactive">
+      <img src="images/bag.png" alt="bag" />
+      <a class="up" href="#"><i class="fad fa-arrow-alt-up"></i></a>
+      <a class="left" href="#"><i class=" fad fa-arrow-alt-left"></i></a>
+      <a class="right" href="#"><i class=" fad fa-arrow-alt-right"></i></a>
+      <a class="down" href="#"><i class=" fad fa-arrow-alt-down"></i></a>
+    </div>
+    <div>
+      <h1>My Bag</h1>
+      <div class="itemText">
+        <p>
+          Having been a student for 21 years, If I don't have my backpack on me,
+          I feel out of place in this world.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const theDiv = document.querySelector("div");
+      let theImage = document.querySelector("img");
+      let itemText = document.querySelector(".itemText p");
+      let arrows = document.querySelectorAll("a");
+      let xStart = 0;
+      let xEnd = 0;
+      let homePage = "bag";
+
+      let bagText =
+        "Having been a student for 21 years, If I don't have my backpack on me, I feel out of place in this world.";
+
+      let waterText =
+        "Since I get dry eyes in front of a computer, water is an essential resource.";
+
+      let headphonesText =
+        "Music is in my bones. Without it my happiness would suffer tremendously, so I make sure that it's accessible anywhere.";
+
+      let laptopText =
+        "It's important for me to keep my day moving and stay occupied doing something.";
+
+      for (var i = 0; i < arrows.length; i++) {
+        console.log(arrows[i].className);
+        let command = arrows[i].className;
+        arrows[i].addEventListener("click", function(event) {
+          event.preventDefault();
+          changeImage(command);
+        });
+      }
+
+      function changeImage(direction) {
+        switch (direction) {
+          case "right":
+            if (homePage == "bag") {
+              homePage = "water";
+              theImage.setAttribute("src", "images/water.png");
+              itemText.innerHTML = `${waterText}`;
+              document.querySelector(".right").style.visibility = "hidden";
+              document.querySelector(".down").style.visibility = "hidden";
+            } else if (homePage == "headphones") {
+              homePage = "bag";
+              theImage.setAttribute("src", "images/bag.png");
+              itemText.innerHTML = `${bagText}`;
+              document.querySelector(".left").style.visibility = "visible";
+              document.querySelector(".down").style.visibility = "visible";
+            }
+            break;
+          case "left":
+            if (homePage == "bag") {
+              homePage = "headphones";
+              theImage.setAttribute("src", "images/headphones.png");
+              itemText.innerHTML = `${headphonesText}`;
+              document.querySelector(".left").style.visibility = "hidden";
+              document.querySelector(".down").style.visibility = "hidden";
+            } else if (homePage == "water") {
+              homePage = "bag";
+              theImage.setAttribute("src", "images/bag.png");
+              itemText.innerHTML = `${bagText}`;
+              document.querySelector(".right").style.visibility = "visible";
+              document.querySelector(".down").style.visibility = "visible";
+            }
+            break;
+          case "down":
+            if (homePage == "bag") {
+              homePage = "laptop";
+              theImage.setAttribute("src", "images/laptop.png");
+              itemText.innerHTML = `${laptopText}`;
+              document.querySelector(".down").style.visibility = "hidden";
+              document.querySelector(".up").style.visibility = "visible";
+              document.querySelector(".left").style.visibility = "hidden";
+              document.querySelector(".right").style.visibility = "hidden";
+            }
+            break;
+          default:
+            if (homePage == "laptop") {
+              homePage = "bag";
+              theImage.setAttribute("src", "images/bag.png");
+              itemText.innerHTML = `${bagText}`;
+              document.querySelector(".up").style.visibility = "hidden";
+              document.querySelector(".down").style.visibility = "visible";
+              document.querySelector(".left").style.visibility = "visible";
+              document.querySelector(".right").style.visibility = "visible";
+            }
+            break;
+        }
+      }
+
+      theImage.addEventListener("touchstart", function(event) {
+        xStart = event.touches[0].clientX;
+        yStart = event.touches[0].clientY;
+      });
+
+      theImage.addEventListener("touchend", function(event) {
+        xEnd = event.changedTouches[0].clientX;
+        yEnd = event.changedTouches[0].clientY;
+
+        if (Math.abs(xStart - xEnd) >= Math.abs(yStart - yEnd)) {
+          if (xStart > xEnd) {
+            changeImage("right");
+            console.log("swiped left");
+          } else {
+            changeImage("left");
+            console.log("swiped right");
+          }
+        } else {
+          if (yStart > yEnd) {
+            changeImage("down");
+            console.log("swiped up");
+          } else {
+            changeImage("up");
+            console.log("swiped down");
+          }
+        }
+      });
+    </script>
+
+    <footer>
+      <a href="https://validator.w3.org/check?uri=referer">Valid HTML</a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
