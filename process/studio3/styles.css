@@ -1,0 +1,76 @@
+* {
+  font-family: "Muli";
+}
+
+body {
+  padding: 5vw;
+}
+h1,
+h2 {
+  font-family: "Squada One";
+}
+
+#scoreboard {
+  position: relative;
+}
+
+#pig {
+  height: 100px;
+}
+
+#slider {
+  position: absolute;
+  left: 0;
+  transition: left 1s ease;
+  height: 0.2rem;
+  background-color: rgb(82, 82, 82);
+}
+
+button {
+  float: left;
+  transition: all 0.5s ease;
+  padding: 1rem 1.5rem;
+  background-color: rgb(244253, 242);
+  border: solid 1px rgb(108, 104, 112);
+  border-radius: 8px;
+  margin-right: 1rem;
+  -webkit-box-shadow: -1px -1px 10px 0px rgba(71, 105, 82, 0.3);
+  -moz-box-shadow: -1px -1px 10px 0px rgba(13, 6, 17, 0.3);
+  box-shadow: -1px -1px 10px 0px rgba(93, 71, 105, 0.3);
+}
+
+button:hover {
+  transition: all 0.5s ease;
+  background-color: #6a427a;
+  color: #ffffff;
+  -webkit-box-shadow: -1px -1px 10px 0px rgba(93, 71, 105, 0);
+  -moz-box-shadow: -1px -1px 10px 0px rgba(93, 71, 105, 0);
+  box-shadow: -1px -1px 10px 0px rgba(93, 71, 105, 0);
+}
+
+#game {
+  height: 100px;
+}
+
+#playerScores {
+  display: flex;
+  justify-content: space-between;
+}
+
+#quit {
+  float: right;
+  margin-right: 0;
+}
+
+#quit:hover {
+  background-color: #af5252;
+}
+
+#controls {
+  overflow: hidden;
+}
+
+footer {
+  clear: both;
+  padding-top: 2rem;
+}
